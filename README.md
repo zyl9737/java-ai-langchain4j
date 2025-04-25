@@ -6,7 +6,7 @@
 - ollama本地调用 
 - 阿里百炼调用
 
-2. 采用mongoDB持久化聊天记忆，mysql持久化用户信息。
+2. 采用mongoDB持久化聊天记忆，mysql持久化用户信息, pinecone存储向量。
 
 3. 支持聊天记忆隔离，Function Calling函数调用（提出问题时，大语言模型会判断是否使用某个工具）。
 

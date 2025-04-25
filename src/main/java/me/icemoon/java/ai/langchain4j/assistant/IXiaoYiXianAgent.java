@@ -5,6 +5,7 @@ import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
 import dev.langchain4j.service.spring.AiServiceWiringMode;
+import reactor.core.publisher.Flux;
 
 /**
  * @author Yulong
@@ -13,12 +14,14 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
  */
 @AiService(
         wiringMode = AiServiceWiringMode.EXPLICIT,
-        chatModel = "qwenChatModel",
+//        chatModel = "ollamaChatModel",
+        streamingChatModel = "qwenStreamingChatModel",
         chatMemoryProvider = "chatMemoryProviderXiaoYiXian",
-        tools = "appointmentTools"
+        tools = "appointmentTools",
+        contentRetriever = "contentRetrieverXiaoYiXianPinecone"
 )
 public interface IXiaoYiXianAgent {
 
     @SystemMessage(fromResource = "xiaoyixian-prompt-template.txt")
-    String chat(@MemoryId Long memoryId, @UserMessage String userMessage);
+    Flux<String> chat(@MemoryId Long memoryId, @UserMessage String userMessage);
 }

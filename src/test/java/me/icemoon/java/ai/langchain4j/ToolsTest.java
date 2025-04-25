@@ -17,7 +17,7 @@ public class ToolsTest {
 
     @Test
     public void testCalculator() {
-        String answer = separateChatAssistant.chat(4, "1 + 2 等于几， 4327943289479的平方根是多少？");
+        String answer = separateChatAssistant.chat(5, "1 + 2 等于几， 4327943289479的平方根是多少？");
         // 3， 2080370.94
         System.out.println(answer);
     }
